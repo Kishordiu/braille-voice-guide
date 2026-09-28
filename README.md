@@ -1,41 +1,40 @@
-# Braille Voice Guide
+# BRAILLE VOICE GUIDE
 
-> **Accessibility technology connecting Braille recognition with voice guidance.**
+![Cinematic hero](https://capsule-render.vercel.app/api?type=rect&color=0:070707,100:171717&height=230&text=BRAILLE%20VOICE%20GUIDE&fontColor=F3F3EE&fontSize=40&fontAlignY=38&desc=ACCESSIBILITY%20%2F%20VOICE&descColor=999991&descSize=12&descAlignY=66&animation=scaleIn)
 
-Braille Voice Guide is part of K. Kishor Kumar's public engineering portfolio, exploring practical product ideas through modern web development and iterative prototyping.
+> **ACCESSIBILITY / VOICE.**
 
-## Highlights
+## THE PREMISE
 
-- Responsive product-oriented interface
-- Modular implementation designed for iteration
-- Clear separation between prototype concepts and production claims
-- Built as an independent engineering experiment
+Braille Voice Guide explores how tactile input and spoken guidance can meet in one calm, understandable interface.
 
-## Stack
+## THE EXPERIENCE
+
+**Reduce the number of steps to understanding.**  
+**Design for listening as well as reading.**  
+**Accessibility is part of the product model.**
+
+## THE SYSTEM
+
+The frontend is intentionally lightweight, leaving seams for future camera, Braille-recognition and text-to-speech adapters without claiming those integrations are production-ready.
+
+## THE STACK
 
 React · TypeScript · Vite · Tailwind CSS
 
-## Run locally
+## RUN
 
-~~~bash
+```bash
 npm install
 npm run dev
-~~~
+```
 
-For a production build:
+## PROJECT STATE
 
-~~~bash
-npm run build
-~~~
+**Accessibility technology prototype**
 
-## Status
-
-**Accessibility prototype**
-
-## Author
-
-**K. Kishor Kumar** · [GitHub @Kishordiu](https://github.com/Kishordiu)
+Implemented behaviour is documented separately from future integrations so the project story stays honest as the product evolves.
 
 ---
 
-<p align="center">Built with curiosity, iteration and engineering discipline.</p>
+<p align="center"><strong>K. KISHOR KUMAR</strong><br><sub>ENGINEERING / PRODUCT / SYSTEMS</sub></p>
