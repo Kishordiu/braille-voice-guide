@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ScanLine, Volume2, Sparkles, Camera, MessageSquareWarning, Type,
-  ShieldCheck, BookOpen,
+  ScanLine,
+  Volume2,
+  Sparkles,
+  Camera,
+  MessageSquareWarning,
+  Type,
+  ShieldCheck,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientRibbon } from "@/components/GradientRibbon";
@@ -14,9 +20,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "BrailleVision — Camera-powered Braille reading with voice guidance" },
-      { name: "description", content: "Scan real handwritten or embossed Braille with your camera and hear the result instantly." },
+      {
+        name: "description",
+        content:
+          "Scan real handwritten or embossed Braille with your camera and hear the result instantly.",
+      },
       { property: "og:title", content: "BrailleVision Assistive Scanner" },
-      { property: "og:description", content: "Camera-powered Braille reading with voice-guided assistance." },
+      {
+        property: "og:description",
+        content: "Camera-powered Braille reading with voice-guided assistance.",
+      },
     ],
   }),
   component: Home,
@@ -51,7 +64,9 @@ function HeroVisual() {
         </div>
       </div>
       <div className="mt-3 rounded-lg bg-muted p-3">
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Result</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Result
+        </p>
         <p className="mt-1 text-base font-semibold text-foreground">"Education is for everyone"</p>
       </div>
     </div>
@@ -88,7 +103,8 @@ function Home() {
             </div>
             <p className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <span className="h-2 w-2 animate-pulse rounded-full bg-success" />
-              Voice-guided scan readiness: <span className="font-semibold text-foreground">98.7%</span>
+              Voice-guided scan readiness:{" "}
+              <span className="font-semibold text-foreground">98.7%</span>
             </p>
           </div>
           <HeroVisual />
@@ -135,12 +151,36 @@ function Home() {
             description="Most converters focus only on translating Braille after input is given. BrailleVision solves a bigger problem: helping visually impaired users capture a usable image in the first place."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard icon={MessageSquareWarning} title="Low-light voice warning" description="Detects poor lighting and tells the user to move to a brighter area." />
-            <FeatureCard icon={ScanLine} title="Blur & shake detection" description="Warns the user to hold the camera steady before capture." />
-            <FeatureCard icon={Camera} title="Distance guidance" description="Asks the user to move closer or farther for an ideal frame." />
-            <FeatureCard icon={ShieldCheck} title="Confidence-based rescan" description="Suggests a rescan when recognition confidence is too low to trust." />
-            <FeatureCard icon={Volume2} title="Voice-first mode" description="Every state change is announced — no need to look at the screen." />
-            <FeatureCard icon={BookOpen} title="Real Braille pages" description="Designed for embossed and handwritten Braille, not just digital input." />
+            <FeatureCard
+              icon={MessageSquareWarning}
+              title="Low-light voice warning"
+              description="Detects poor lighting and tells the user to move to a brighter area."
+            />
+            <FeatureCard
+              icon={ScanLine}
+              title="Blur & shake detection"
+              description="Warns the user to hold the camera steady before capture."
+            />
+            <FeatureCard
+              icon={Camera}
+              title="Distance guidance"
+              description="Asks the user to move closer or farther for an ideal frame."
+            />
+            <FeatureCard
+              icon={ShieldCheck}
+              title="Confidence-based rescan"
+              description="Suggests a rescan when recognition confidence is too low to trust."
+            />
+            <FeatureCard
+              icon={Volume2}
+              title="Voice-first mode"
+              description="Every state change is announced — no need to look at the screen."
+            />
+            <FeatureCard
+              icon={BookOpen}
+              title="Real Braille pages"
+              description="Designed for embossed and handwritten Braille, not just digital input."
+            />
           </div>
           <div className="mt-10">
             <Button asChild variant="outline">

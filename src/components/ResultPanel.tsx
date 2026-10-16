@@ -38,7 +38,10 @@ export function ResultPanel({ text, confidence, qualityScore, onSpeak, onRescan 
       className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 id="result-heading" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+        <h3
+          id="result-heading"
+          className="text-sm font-semibold uppercase tracking-wider text-muted-foreground"
+        >
           Recognized text
         </h3>
         <div className="flex gap-2 text-xs">
@@ -54,7 +57,10 @@ export function ResultPanel({ text, confidence, qualityScore, onSpeak, onRescan 
       <p className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">"{text}"</p>
 
       {low && (
-        <div role="alert" className="mt-4 flex gap-3 rounded-xl border border-warning/40 bg-warning/15 p-3 text-sm">
+        <div
+          role="alert"
+          className="mt-4 flex gap-3 rounded-xl border border-warning/40 bg-warning/15 p-3 text-sm"
+        >
           <AlertTriangle className="mt-0.5 h-4 w-4 text-warning-foreground" aria-hidden="true" />
           <p className="text-warning-foreground">
             Result may not be accurate. Please rescan with better lighting and a steady camera.

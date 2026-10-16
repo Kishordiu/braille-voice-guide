@@ -6,9 +6,19 @@ type Props = {
 };
 
 function tone(v: number) {
-  if (v >= 0.75) return { color: "text-success", Icon: CheckCircle2, ring: "border-success/30 bg-success/10" };
-  if (v >= 0.5) return { color: "text-warning-foreground", Icon: AlertTriangle, ring: "border-warning/40 bg-warning/15" };
-  return { color: "text-destructive", Icon: XCircle, ring: "border-destructive/30 bg-destructive/10" };
+  if (v >= 0.75)
+    return { color: "text-success", Icon: CheckCircle2, ring: "border-success/30 bg-success/10" };
+  if (v >= 0.5)
+    return {
+      color: "text-warning-foreground",
+      Icon: AlertTriangle,
+      ring: "border-warning/40 bg-warning/15",
+    };
+  return {
+    color: "text-destructive",
+    Icon: XCircle,
+    ring: "border-destructive/30 bg-destructive/10",
+  };
 }
 
 export function QualityBadge({ label, value }: Props) {

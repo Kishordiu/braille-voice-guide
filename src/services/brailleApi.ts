@@ -7,11 +7,11 @@
  */
 
 export type QualityMetrics = {
-  lighting: number;      // 0..1
-  blur: number;          // 0..1 (1 = sharp)
-  stability: number;     // 0..1
-  distance: number;      // 0..1 (1 = ideal)
-  alignment: number;     // 0..1
+  lighting: number; // 0..1
+  blur: number; // 0..1 (1 = sharp)
+  stability: number; // 0..1
+  distance: number; // 0..1 (1 = ideal)
+  alignment: number; // 0..1
   brailleConfidence: number; // 0..1
 };
 
@@ -84,7 +84,9 @@ export async function analyzeUploadedImage(_file: File): Promise<RecognitionResu
   };
 }
 
-export async function translateBrailleDots(dots: BrailleDot[]): Promise<{ text: string; confidence: number }> {
+export async function translateBrailleDots(
+  dots: BrailleDot[],
+): Promise<{ text: string; confidence: number }> {
   await new Promise((r) => setTimeout(r, 250));
   const idx = Math.min(SAMPLE_TEXTS.length - 1, Math.floor(dots.length / 4));
   return {
@@ -93,7 +95,9 @@ export async function translateBrailleDots(dots: BrailleDot[]): Promise<{ text: 
   };
 }
 
-export async function checkImageQuality(_image: HTMLImageElement | HTMLVideoElement | null): Promise<QualityMetrics> {
+export async function checkImageQuality(
+  _image: HTMLImageElement | HTMLVideoElement | null,
+): Promise<QualityMetrics> {
   await new Promise((r) => setTimeout(r, 80));
   return fakeQuality(0.8);
 }

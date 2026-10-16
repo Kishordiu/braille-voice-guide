@@ -10,9 +10,7 @@ import { analyzeUploadedImage, type QualityMetrics } from "@/services/brailleApi
 
 function avgQuality(q: QualityMetrics | null): number {
   if (!q) return 0;
-  return (
-    (q.lighting + q.blur + q.stability + q.distance + q.alignment + q.brailleConfidence) / 6
-  );
+  return (q.lighting + q.blur + q.stability + q.distance + q.alignment + q.brailleConfidence) / 6;
 }
 
 export function ScannerPanel() {
@@ -23,7 +21,11 @@ export function ScannerPanel() {
   const [cameraOn, setCameraOn] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
-  const [uploadResult, setUploadResult] = useState<{ text: string; confidence: number; quality: QualityMetrics } | null>(null);
+  const [uploadResult, setUploadResult] = useState<{
+    text: string;
+    confidence: number;
+    quality: QualityMetrics;
+  } | null>(null);
 
   const voice = useVoiceGuide();
 

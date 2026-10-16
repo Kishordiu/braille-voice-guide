@@ -6,15 +6,28 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — BrailleVision" },
-      { name: "description", content: "BrailleVision is a camera-based assistive reader for real physical Braille." },
+      {
+        name: "description",
+        content: "BrailleVision is a camera-based assistive reader for real physical Braille.",
+      },
       { property: "og:title", content: "About BrailleVision" },
-      { property: "og:description", content: "Designed to help visually impaired users read real Braille with a simple camera." },
+      {
+        property: "og:description",
+        content: "Designed to help visually impaired users read real Braille with a simple camera.",
+      },
     ],
   }),
   component: About,
 });
 
-const useCases = ["Schools", "Libraries", "Colleges", "Public service centers", "Homes", "Accessibility labs"];
+const useCases = [
+  "Schools",
+  "Libraries",
+  "Colleges",
+  "Public service centers",
+  "Homes",
+  "Accessibility labs",
+];
 
 function About() {
   return (

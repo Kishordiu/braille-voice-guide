@@ -44,7 +44,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             Try again
@@ -61,10 +64,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "BrailleVision — Camera-powered Braille reading" },
-      { name: "description", content: "Real-time assistive AI that reads physical Braille with voice-guided scan assistance." },
+      {
+        name: "description",
+        content:
+          "Real-time assistive AI that reads physical Braille with voice-guided scan assistance.",
+      },
       { name: "author", content: "K. Kishor Kumar" },
       { property: "og:title", content: "BrailleVision Assistive Scanner" },
-      { property: "og:description", content: "Camera-powered Braille reading with voice-guided assistance for visually impaired users." },
+      {
+        property: "og:description",
+        content:
+          "Camera-powered Braille reading with voice-guided assistance for visually impaired users.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

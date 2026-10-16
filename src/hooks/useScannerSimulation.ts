@@ -26,29 +26,47 @@ const FLOW: ScannerStatus[] = [
 
 export function statusLabel(s: ScannerStatus): string {
   switch (s) {
-    case "idle": return "Idle";
-    case "waiting": return "Waiting for camera";
-    case "checking-lighting": return "Checking lighting";
-    case "checking-blur": return "Checking blur";
-    case "checking-alignment": return "Checking alignment";
-    case "detecting": return "Braille dots detected";
-    case "translating": return "Translating Braille";
-    case "result": return "Result ready";
-    case "low-confidence": return "Low confidence — please rescan";
+    case "idle":
+      return "Idle";
+    case "waiting":
+      return "Waiting for camera";
+    case "checking-lighting":
+      return "Checking lighting";
+    case "checking-blur":
+      return "Checking blur";
+    case "checking-alignment":
+      return "Checking alignment";
+    case "detecting":
+      return "Braille dots detected";
+    case "translating":
+      return "Translating Braille";
+    case "result":
+      return "Result ready";
+    case "low-confidence":
+      return "Low confidence — please rescan";
   }
 }
 
 export function statusVoiceCue(s: ScannerStatus): string | null {
   switch (s) {
-    case "waiting": return "Looking for Braille page.";
-    case "checking-lighting": return "Checking lighting. Please stay in a well lit area.";
-    case "checking-blur": return "Please hold the camera steady.";
-    case "checking-alignment": return "Center the Braille page in the frame.";
-    case "detecting": return "Braille dots detected. Reading now.";
-    case "translating": return "Translating Braille to English.";
-    case "result": return "Result ready. Speaking the detected text.";
-    case "low-confidence": return "Confidence is low. Please rescan with better lighting.";
-    default: return null;
+    case "waiting":
+      return "Looking for Braille page.";
+    case "checking-lighting":
+      return "Checking lighting. Please stay in a well lit area.";
+    case "checking-blur":
+      return "Please hold the camera steady.";
+    case "checking-alignment":
+      return "Center the Braille page in the frame.";
+    case "detecting":
+      return "Braille dots detected. Reading now.";
+    case "translating":
+      return "Translating Braille to English.";
+    case "result":
+      return "Result ready. Speaking the detected text.";
+    case "low-confidence":
+      return "Confidence is low. Please rescan with better lighting.";
+    default:
+      return null;
   }
 }
 

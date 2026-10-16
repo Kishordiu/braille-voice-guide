@@ -20,17 +20,37 @@ export function Footer() {
         <div>
           <h2 className="text-sm font-semibold text-foreground">Product</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/scanner" className="hover:text-foreground">Scanner</Link></li>
-            <li><Link to="/demo" className="hover:text-foreground">Demo</Link></li>
-            <li><Link to="/innovation" className="hover:text-foreground">Innovation</Link></li>
-            <li><Link to="/architecture" className="hover:text-foreground">Architecture</Link></li>
+            <li>
+              <Link to="/scanner" className="hover:text-foreground">
+                Scanner
+              </Link>
+            </li>
+            <li>
+              <Link to="/demo" className="hover:text-foreground">
+                Demo
+              </Link>
+            </li>
+            <li>
+              <Link to="/innovation" className="hover:text-foreground">
+                Innovation
+              </Link>
+            </li>
+            <li>
+              <Link to="/architecture" className="hover:text-foreground">
+                Architecture
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div>
           <h2 className="text-sm font-semibold text-foreground">Project</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
+            <li>
+              <Link to="/about" className="hover:text-foreground">
+                About
+              </Link>
+            </li>
             <li>Built for BrailleVision Hackathon 2026</li>
           </ul>
         </div>

@@ -11,9 +11,16 @@ export const Route = createFileRoute("/demo")({
   head: () => ({
     meta: [
       { title: "Demo Mode — BrailleVision" },
-      { name: "description", content: "Watch BrailleVision check lighting, blur, alignment, detect Braille dots, and speak the result." },
+      {
+        name: "description",
+        content:
+          "Watch BrailleVision check lighting, blur, alignment, detect Braille dots, and speak the result.",
+      },
       { property: "og:title", content: "BrailleVision Demo" },
-      { property: "og:description", content: "A judge-ready demo of the camera-powered Braille pipeline with voice guidance." },
+      {
+        property: "og:description",
+        content: "A judge-ready demo of the camera-powered Braille pipeline with voice guidance.",
+      },
     ],
   }),
   component: DemoPage,
@@ -39,7 +46,12 @@ function DemoPage() {
   const [text, setText] = useState<string>("");
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  useEffect(() => () => { timers.current.forEach(clearTimeout); }, []);
+  useEffect(
+    () => () => {
+      timers.current.forEach(clearTimeout);
+    },
+    [],
+  );
 
   const start = () => {
     timers.current.forEach(clearTimeout);
@@ -51,18 +63,21 @@ function DemoPage() {
     setText(sampleText);
 
     STEPS.forEach((step, i) => {
-      const t = setTimeout(() => {
-        setCurrent(i);
-        voice.speak(step.cue);
-        if (i === STEPS.length - 1) {
-          const t2 = setTimeout(() => {
-            voice.speakResult(sampleText);
-            setDone(true);
-            setRunning(false);
-          }, 700);
-          timers.current.push(t2);
-        }
-      }, i * 1300 + 400);
+      const t = setTimeout(
+        () => {
+          setCurrent(i);
+          voice.speak(step.cue);
+          if (i === STEPS.length - 1) {
+            const t2 = setTimeout(() => {
+              voice.speakResult(sampleText);
+              setDone(true);
+              setRunning(false);
+            }, 700);
+            timers.current.push(t2);
+          }
+        },
+        i * 1300 + 400,
+      );
       timers.current.push(t);
     });
   };
@@ -121,8 +136,8 @@ function DemoPage() {
                       state === "done"
                         ? "border-success/30 bg-success/10 text-foreground"
                         : state === "active"
-                        ? "border-primary/40 bg-accent text-foreground"
-                        : "border-border bg-muted text-muted-foreground"
+                          ? "border-primary/40 bg-accent text-foreground"
+                          : "border-border bg-muted text-muted-foreground"
                     }`}
                   >
                     <span className="flex items-center gap-2">
@@ -131,8 +146,8 @@ function DemoPage() {
                           state === "done"
                             ? "bg-success text-success-foreground"
                             : state === "active"
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-card text-muted-foreground"
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-card text-muted-foreground"
                         }`}
                       >
                         {i + 1}
