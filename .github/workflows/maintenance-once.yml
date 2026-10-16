@@ -51,8 +51,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git add package-lock.json
-          git add src
+          git add -A
           if git diff --cached --quiet; then
             echo "No file changes were necessary."
           else
