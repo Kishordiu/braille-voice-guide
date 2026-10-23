@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/hero-banner.svg" alt="Braille Voice Guide — Multi-Sensory Audio-Tactile Translation" width="100%" />
+  <img src="./assets/hero.png" alt="Braille Voice Guide — Multi-Sensory Audio-Tactile Translation" width="100%" />
 </div>
 
 <p align="center">
