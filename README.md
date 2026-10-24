@@ -1,107 +1,78 @@
 <div align="center">
-  <img src="./assets/hero.png" alt="Braille Voice Guide — Multi-Sensory Audio-Tactile Translation" width="100%" />
+  <img src="./assets/hero.png" alt="Braille Voice Guide — warm audio-tactile accessibility artwork" width="100%" />
 </div>
 
 <p align="center">
-  <a href="https://diufoundry.online"><img alt="Studio" src="https://img.shields.io/badge/DIU_FOUNDRY-ACCESSIBILITY_LAB-241611?style=for-the-badge&logoColor=F2CC8F&labelColor=090504" /></a>&nbsp;
-  <img alt="Domain" src="https://img.shields.io/badge/INTERFACE-AUDIO--TACTILE-E07A5F?style=for-the-badge&labelColor=090504" />&nbsp;
-  <img alt="Edge" src="https://img.shields.io/badge/CLOUDFLARE-WORKERS_EDGE-F2CC8F?style=for-the-badge&labelColor=090504" />&nbsp;
-  <img alt="Stack" src="https://img.shields.io/badge/RADIX_UI-WEB_AUDIO_API-FFF7ED?style=for-the-badge&labelColor=090504" />
+  <a href="https://diufoundry.online"><img alt="DIU Foundry" src="https://img.shields.io/badge/DIU_FOUNDRY-ACCESSIBILITY_LAB-241611?style=for-the-badge&logoColor=F2CC8F&labelColor=090504" /></a>
+  <img alt="Interface" src="https://img.shields.io/badge/INTERFACE-AUDIO_TACTILE-E07A5F?style=for-the-badge&labelColor=090504" />
+  <img alt="Voice feedback" src="https://img.shields.io/badge/VOICE-BROWSER_SPEECH-F2CC8F?style=for-the-badge&labelColor=090504" />
 </p>
 
-<p align="center">
-  <b>Bridging physical tactile dots and acoustic speech with zero cognitive friction.</b><br/>
-  <em>An inclusive, client-side audio-tactile translation workspace featuring optical Braille document scanning and low-latency voice synthesis.</em>
-</p>
+# Braille Voice Guide
 
----
+**A tactile Braille learning interface with spoken feedback.**
 
-## ✦ System Overview
+Braille Voice Guide is an accessibility-focused learning prototype by DIU Foundry. It includes a camera preview, image upload, visual Braille-oriented components, and spoken feedback through the browser's SpeechSynthesis API.
 
-The **Braille Voice Guide** is an accessibility workbench developed by DIU Foundry. It transforms visual and alphanumeric communication into dual sensory channels: embossed 6-dot Braille patterns and natural neural speech. Designed for universal learning and literacy, the application operates with local-first responsiveness across touch-enabled surfaces and edge compute.
+> [!IMPORTANT]
+> **Braille recognition is currently simulated.** The recognition service in `src/services/brailleApi.ts` returns sample text, confidence values, and quality metrics. It does not perform real Braille OCR yet. Do not use its output to read safety-critical text, medicine labels, signs, or real documents.
 
-```text
- ┌─────────────────────────────────────────────────────────────────────────────┐
- │                         AUDIO-TACTILE LEARNING ENGINE                       │
- ├─────────────────────┬───────────────────────────────┬───────────────────────┤
- │ 6-DOT BRAILLE MATRIX│ ACOUSTIC FREQUENCY SYNTHESIS  │ OPTICAL CAMERA SCAN   │
- │ Multi-touch Tactile │ Neural TTS: 24 kHz Low-Jitter │ Document OCR: Active  │
- └─────────────────────┴───────────────────────────────┴───────────────────────┘
-```
+## What is implemented
 
----
+- **Camera and upload workflow:** Uses browser camera permission or accepts an image upload.
+- **Visual dot-pattern interface:** Demonstrates Braille-related layouts and learning interactions; it is not physical haptic output.
+- **Spoken UI feedback:** Uses the browser SpeechSynthesis API. Available voices and behaviour vary by browser and device.
+- **Simulated recognition flow:** Helps exercise the UI while a real Braille recognition model or service remains future work.
 
-## 🎧 Architecture & Processing Pipeline
+## Current processing path
 
 ```text
-[ USER INPUT (Optical Scan / Alphanumeric Text) ]
-        │
-        ▼
-[ DOCUMENT SCANNER & OCR WORKER ] (`src/routes/scanner.tsx`)
-        │
-        ▼
-[ BRAILLE ENCODING ENGINE ] (`src/services/brailleApi.ts`)
-        │
-        ├─► [ 6-DOT TACTILE HAPTIC EMISSION ] ──► (Simulated Screen Relief & Dot Pin Grid)
-        │
-        └─► [ SPEECH HARMONIC SYNTHESIS ] (`src/services/voiceService.ts`)
-                    │
-                    ▼
-            [ WEB AUDIO API ENGINE ] ──► (Directional Auditory Feedback)
+Camera preview / image upload
+          │
+          ▼
+ScannerPanel.tsx
+          │
+          ▼
+brailleApi.ts
+(simulated recognition and quality metrics)
+          │
+          ├──► sample text / confidence / quality UI
+          │
+          └──► voiceService.ts
+                browser SpeechSynthesis API
 ```
 
----
-
-## ✦ Key Systems & Capabilities
-
-- **Interactive Braille Cell Matrix** — Real-time 6-pin tactile relief simulator mapping standard Unified English Braille (UEB) symbols.
-- **Optical Document Scanner** (`src/routes/scanner.tsx`) — Camera-assisted document capture that extracts printed letters and converts them into audible braille sequences.
-- **Neural Voice Synthesis** (`src/services/voiceService.ts`) — Context-sensitive acoustic pronunciation guiding visually impaired users through tactile layout navigation.
-- **Cloudflare Edge Deployment** — Serverless edge distribution ensuring ultra-fast load times with zero server-side tracking.
-
----
-
-## 🛠️ Project Structure
+## Project structure
 
 ```text
-braille-voice-guide/
-├── public/                 # Sound effects, speech models & phonetic dictionaries
-├── src/
-│   ├── components/         # Tactile braille pins & Radix accessible primitives
-│   ├── routes/             # TanStack routing layer
-│   │   ├── index.tsx       # Primary audio-tactile translation workbench
-│   │   ├── scanner.tsx     # Optical camera scanner & OCR interface
-│   │   ├── demo.tsx        # Interactive Braille learning playground
-│   │   ├── architecture.tsx# Systems design & audio pipeline documentation
-│   │   └── innovation.tsx  # Haptic & accessibility research notes
-│   ├── services/
-│   │   ├── brailleApi.ts   # Alphanumeric to 6-dot Braille bitmask encoder
-│   │   └── voiceService.ts # Web Audio API voice synthesis wrapper
-│   └── styles.css          # Warm terracotta clay & acoustic typography variables
-└── package.json            # Cloudflare Vite plugin, Radix UI, TanStack Router
+src/
+├── components/       Accessible controls, scanner and result panels
+├── hooks/            Scanner simulation and voice-guide state
+├── routes/           Learning, scanner and supporting pages
+└── services/
+    ├── brailleApi.ts     Simulated Braille recognition responses
+    └── voiceService.ts   Browser text-to-speech wrapper
 ```
 
----
+The repository includes a Cloudflare Vite plugin for deployment configuration, but that dependency alone does not confirm a production edge deployment or guarantee a performance level.
 
-## ⚡ Quickstart
+## Run locally
+
+**Requirements:** Bun (recommended) or npm and a supported Node.js runtime.
 
 ```bash
-# Clone repository
 git clone https://github.com/Kishordiu/braille-voice-guide.git
 cd braille-voice-guide
-
-# Install dependencies
-bun install  # or npm install
-
-# Launch accessibility workbench
+bun install
 bun run dev
 ```
 
-Navigate to [http://localhost:5173](http://localhost:5173) and test both voice guidance and the 6-dot interactive simulator.
+Open the local URL printed by Vite. Camera access generally requires a secure context such as localhost or HTTPS and explicit browser permission.
+
+## Status and accessibility boundary
+
+**Status: interaction prototype, not validated assistive technology.** Real Braille recognition and user testing with Braille readers are needed before the project can be relied on to interpret real-world material. Treat the app as a demonstration of interface, visual learning, and spoken feedback rather than a dependable document reader.
 
 ---
 
-<p align="center">
-  <b>RESEARCH → BUILD → TEST → SHIP</b><br/>
-  <sub>An accessible innovation by <a href="https://diufoundry.online">DIU Foundry</a> · Engineered by K. Kishor Kumar</sub>
-</p>
+<p align="center"><sub>DIU FOUNDRY · ACCESSIBILITY / PRODUCT / SYSTEMS</sub></p>
